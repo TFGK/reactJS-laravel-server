@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Location;
 use App\Http\Controllers\Controller;
+use App\Qna_article;
 use Illuminate\Http\Request;
 
-class LocationController extends Controller
+class Qna_Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class LocationController extends Controller
      */
     public function index()
     {
-        $locations = Location::orderBy('id')->get();
+        $qnas = Qna_article::orderBy('id')->get();
 
-        return response()->json($locations);
+        return response()->json($qnas);
     }
 
     /**
@@ -27,7 +27,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -38,16 +38,12 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        $locations = New Location();
-        $locations->location_name = $request->location_name;
-        $locations->location_type = $request->location_type;
-        $locations->location_lat = $request->location_lat;
-        $locations->location_lng = $request->location_lng;
-        $locations->save();
-
-        return response()->json($locations);
-        
-
+        $qnas = new Qna_article();
+        $qnas->qna_type = $request->qna_type;
+        $qnas->title = $request->title;
+        $qnas->content = $request->content;
+        $qnas->save();
+        return response()->json($qnas);
     }
 
     /**
@@ -58,7 +54,7 @@ class LocationController extends Controller
      */
     public function show($id)
     {
-        return Location::find($id);
+        return Qna_article::find($id);
     }
 
     /**
@@ -81,13 +77,12 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $locations = Location::findOrFail($id);
-        $locations->location_name = $request->location_name;
-        $locations->location_type = $request->location_type;
-        $locations->location_lat = $request->location_lat;
-        $locations->location_lng = $request->location_lng;
-        $locations->save();
-        return response()->json($locations);
+        $qnas = Qna_article::findOrFail($id);
+        $qnas->qna_type = $request->qna_type;
+        $qnas->title = $request->title;
+        $qnas->content = $request->content;
+        $qnas->save();
+        return response()->json($qnas);
     }
 
     /**
@@ -98,9 +93,6 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        $locations = Location::findOrFail($id);
-        $locations->delete();
-
-        return response()->json($locations);
+        //
     }
 }
