@@ -107,8 +107,8 @@ class Maps extends Component {
  
   render() {
       const mapStyles = {
-        width: '45%',
-        height: '500px',
+        width: '60%',
+        height: '800px',
         margin: '20px 0 0 20px',
       }
       return (

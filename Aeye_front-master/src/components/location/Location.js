@@ -137,7 +137,7 @@ export default class Location extends Component {
                         <Spring
                           from={{ number :0 }}
                           to={{number:this.state.cont1}}
-                          delay={2000}
+                          delay={200}
                         >
                           {props => <div>{props.number}</div>}
                         </Spring>
@@ -149,7 +149,7 @@ export default class Location extends Component {
                         <Spring
                           from={{ number :0 }}
                           to={{number:this.state.cont2}}
-                          delay={2000}
+                          delay={200}
                         >
                           {props => <div>{props.number}</div>}
                         </Spring>
@@ -161,7 +161,7 @@ export default class Location extends Component {
                         <Spring
                           from={{ number :0 }}
                           to={{number:this.state.cont3}}
-                          delay={2000}
+                          delay={200}
                         >
                           {props => <div>{props.number}</div>}
                         </Spring>
